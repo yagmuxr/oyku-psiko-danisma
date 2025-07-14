@@ -1,0 +1,156 @@
+:root {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  /* Nature-Inspired Professional Palette - Forest Green + Blue */
+  --primary-color: #166534;        /* Forest Green */
+  --primary-light: #059669;        /* Emerald Green */
+  --primary-lighter: #34d399;      /* Light Green */
+  --secondary-color: #0f172a;      /* Dark Navy */
+  --accent-color: #0ea5e9;         /* Sky Blue */
+  --accent-light: #3b82f6;         /* Blue */
+  --accent-soft: #7dd3fc;          /* Light Blue */
+  
+  --text-dark: #064e3b;            /* Dark Forest */
+  --text-gray: #475569;            /* Slate Gray */
+  --text-light: #64748b;           /* Light Slate */
+  --bg-light: #f0fdf4;             /* Very Light Green */
+  --bg-soft: #ecfdf5;              /* Soft Green */
+  --white: #ffffff;
+  
+  /* Nature Gradients */
+  --gradient-primary: linear-gradient(135deg, #166534 0%, #059669 100%);
+  --gradient-nature: linear-gradient(135deg, #059669 0%, #0ea5e9 100%);
+  --gradient-soft: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+  
+  color-scheme: light;
+  color: var(--text-dark);
+  background-color: var(--white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    rgba(248, 250, 252, 1) 0%, 
+    rgba(255, 255, 255, 1) 50%,
+    rgba(248, 250, 252, 1) 100%
+  );
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-dark);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(5, 150, 105, 0.2);
+  color: var(--text-dark);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Remove outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Improved link hover effects */
+a:not(.no-underline):hover {
+  text-decoration: underline;
+  text-decoration-color: var(--primary-light);
+  text-underline-offset: 3px;
+}

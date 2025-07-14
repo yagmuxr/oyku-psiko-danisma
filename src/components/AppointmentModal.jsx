@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import './AppointmentModal.css';
 
 const AppointmentModal = ({ isOpen, onClose }) => {
-  const form = useRef();
+  const form = useRef(); // form ref unutulmasın!
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,9 +12,8 @@ const AppointmentModal = ({ isOpen, onClose }) => {
     time: '',
     message: ''
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,221 +24,215 @@ const AppointmentModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError('');
+    setIsSubmitting(true);
 
     try {
-      // EmailJS ile mail gönderme
-      // Not: EmailJS'den alacağın service ID, template ID ve public key'i buraya eklemen gerekiyor
-      const result = await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // EmailJS service ID'nizi buraya ekleyin
-        'YOUR_TEMPLATE_ID', // EmailJS template ID'nizi buraya ekleyin
+      // Admin maili formdan gider
+      await emailjs.sendForm(
+        'service_66j8bfk',
+        'template_grqf0fs',
         form.current,
-        'YOUR_PUBLIC_KEY' // EmailJS public key'inizi buraya ekleyin
+        'hf2qkTiF7noF0jBZM'
       );
 
-      console.log('Email sent successfully:', result.text);
-      setIsSuccess(true);
-      
-      // Form verilerini temizle
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        time: '',
-        message: ''
-      });
+      // Kullanıcıya onay maili JSON parametreyle gider
+      await emailjs.send(
+        'service_66j8bfk',
+        'template_d4w21cb',
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          message: formData.message
+        },
+        'hf2qkTiF7noF0jBZM'
+      );
 
-      // 4 saniye sonra modalı kapat
-      setTimeout(() => {
-        setIsSuccess(false);
-        onClose();
-      }, 4000);
-
+      setSubmitStatus('success');
     } catch (error) {
-      console.error('Email send error:', error);
-      setError('Randevu talebi gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+      console.error('Email gönderme hatası:', error);
+      setSubmitStatus('error');
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
+  };
+
+  const handleClose = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      date: '',
+      time: '',
+      message: ''
+    });
+    setSubmitStatus(null);
+    onClose();
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {isSuccess ? (
+        <div className="modal-header">
+          <h2>Randevu Talep Formu</h2>
+          <button className="modal-close" onClick={handleClose}>×</button>
+        </div>
+
+        {submitStatus === 'success' && (
           <div className="success-container">
-            <button className="close-button-success" onClick={onClose}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </button>
-            <div className="success-content">
-              <div className="success-animation">
-                <div className="success-icon">🌟</div>
-                <div className="success-circle"></div>
-              </div>
-              <div className="success-text">
-                <h3>Randevu Talebiniz Başarıyla Alındı!</h3>
-                <p>Teşekkür ederiz! En kısa sürede sizinle iletişime geçeceğiz.</p>
-                <div className="success-note">
-                  <span className="note-icon">📧</span>
-                  E-posta adresinize onay mesajı gönderildi.
+            <div className="success-animation">
+              <div className="success-checkmark">
+                <div className="check-icon">
+                  <span className="icon-line line-tip"></span>
+                  <span className="icon-line line-long"></span>
+                  <div className="icon-circle"></div>
+                  <div className="icon-fix"></div>
                 </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <>
-            <div className="modal-header">
-              <div className="header-content">
-                <div className="header-icon">🌿</div>
-                <div>
-                  <h2>Randevu Talebi</h2>
-                  <p>Size en uygun randevu için bilgilerinizi paylaşın</p>
+            
+            <div className="success-content">
+              <h3>🎉 Randevu Talebiniz Alındı!</h3>
+              <div className="success-details">
+                <div className="success-item">
+                  <span className="success-icon">📅</span>
+                  <div>
+                    <strong>Tarih:</strong> {formData.date ? 
+                      new Date(formData.date + 'T00:00:00').toLocaleDateString('tr-TR', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                      }) : 'Belirtilmemiş'
+                    }
+                    {formData.time && <><br /><strong>Saat:</strong> {formData.time}</>}
+                  </div>
+                </div>
+                
+                <div className="success-item">
+                  <span className="success-icon">📧</span>
+                  <div>
+                    <strong>E-posta adresinize onay maili gönderildi!</strong><br />
+                    
+                  </div>
+                </div>
+                
+                <div className="success-item">
+                  <span className="success-icon">⏰</span>
+                  <div>
+                    <strong>24 saat içinde sizinle iletişime geçeceğiz</strong><br />
+                    
+                  </div>
                 </div>
               </div>
-              <button className="close-button" onClick={onClose}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
+              
+              <button className="success-btn" onClick={handleClose}>
+                Tamam
               </button>
             </div>
+          </div>
+        )}
 
-            <form ref={form} onSubmit={handleSubmit} className="appointment-form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name">
-                    <span className="label-icon">👤</span>
-                    Ad Soyad *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Adınız ve soyadınız"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">
-                    <span className="label-icon">✉️</span>
-                    E-posta *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="ornek@email.com"
-                  />
-                </div>
-              </div>
+        {submitStatus === 'error' && (
+          <div className="error-message">
+            <div className="error-icon">✗</div>
+            <h3>Bir Hata Oluştu</h3>
+            <p>Lütfen daha sonra tekrar deneyin veya telefonla iletişime geçin.</p>
+            <button className="error-btn" onClick={() => setSubmitStatus(null)}>
+              Tekrar Dene
+            </button>
+          </div>
+        )}
 
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="phone">
-                    <span className="label-icon">📱</span>
-                    Telefon *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    placeholder="0555 123 45 67"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="date">
-                    <span className="label-icon">📅</span>
-                    Tercih Edilen Tarih
-                  </label>
-                  <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    min={new Date().toISOString().split('T')[0]}
-                  />
-                </div>
-              </div>
-
+        {!submitStatus && (
+          <form ref={form} onSubmit={handleSubmit} className="appointment-form">
+            <div className="form-row">
               <div className="form-group">
-                <label htmlFor="time">
-                  <span className="label-icon">⏰</span>
-                  Tercih Edilen Saat
-                </label>
-                <select
-                  id="time"
-                  name="time"
-                  value={formData.time}
+                <label>Ad Soyad *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
-                >
-                  <option value="">Saat seçiniz</option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message">
-                  <span className="label-icon">💭</span>
-                  Mesajınız
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="4"
-                  placeholder="Randevu ile ilgili belirtmek istediğiniz özel durumlar..."
+                  required
                 />
               </div>
-
-              {error && (
-                <div className="error-message">
-                  <span className="error-icon">⚠️</span>
-                  {error}
-                </div>
-              )}
-
-              <div className="form-actions">
-                <button type="button" onClick={onClose} className="cancel-btn">
-                  İptal
-                </button>
-                <button type="submit" disabled={isLoading} className="submit-btn">
-                  {isLoading ? (
-                    <span className="loading-content">
-                      <span className="loading-spinner"></span>
-                      Gönderiliyor...
-                    </span>
-                  ) : (
-                    <span>
-                      <span className="btn-icon">🌿</span>
-                      Randevu Talebi Gönder
-                    </span>
-                  )}
-                </button>
+              <div className="form-group">
+                <label>E-posta *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </div>
-            </form>
-          </>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label>Telefon</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+90 XXX XXX XX XX"
+                />
+              </div>
+              <div className="form-group">
+                <label>Tercih Edilen Tarih *</label>
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                  min={new Date().toISOString().split('T')[0]}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Tercih Edilen Saat</label>
+              <select
+                name="time"
+                value={formData.time}
+                onChange={handleChange}
+              >
+                <option value="">Saat seçin</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>Mesajınız</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="4"
+                placeholder="Randevu ile ilgili eklemek istedikleriniz..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Gönderiliyor...' : 'Randevu Talebi Gönder'}
+            </button>
+          </form>
         )}
       </div>
     </div>

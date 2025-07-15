@@ -2,13 +2,20 @@ import React from 'react';
 import './Footer.css';
 
 const Footer = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-background">
         <div className="footer-container">
           <div className="footer-content">
             <div className="footer-section">
-              <h3>Öykü Psikolojik Danışma</h3>
+              <h3>Öykü Çengel</h3>
               <p>
                 Online terapi hizmetleri ile sizlere ulaşmak ve psikolojik destek 
                 sağlamak için buradayız. Güvenli ve profesyonel ortamda kendinizi 
@@ -36,10 +43,10 @@ const Footer = () => {
             <div className="footer-section">
               <h4>Hızlı Linkler</h4>
               <ul>
-                <li><a href="#anasayfa">Ana Sayfa</a></li>
-                <li><a href="#hakkimda">Hakkımda</a></li>
-                <li><a href="#hizmetler">Hizmetler</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="#anasayfa" onClick={(e) => { e.preventDefault(); scrollToSection('anasayfa'); }}>Ana Sayfa</a></li>
+                <li><a href="#hakkimda" onClick={(e) => { e.preventDefault(); scrollToSection('hakkimda'); }}>Hakkımda</a></li>
+                <li><a href="#hizmetler" onClick={(e) => { e.preventDefault(); scrollToSection('hizmetler'); }}>Hizmetler</a></li>
+                <li><a href="#iletisim" onClick={(e) => { e.preventDefault(); scrollToSection('iletisim'); }}>İletişim</a></li>
               </ul>
             </div>
 
@@ -58,15 +65,15 @@ const Footer = () => {
               <div className="contact-info">
                 <p>
                   <span className="contact-icon">📱</span>
-                  +90 (555) 123 45 67
+                  <span>+90 553 261 03 06</span>
                 </p>
                 <p>
                   <span className="contact-icon">✉️</span>
-                  info@oykupsikoloji.com
+                  <span>mutluranch@icloud.com</span>
                 </p>
                 <p>
                   <span className="contact-icon">🕐</span>
-                  Pazartesi - Cuma: 09:00 - 18:00
+                  <span>Pazartesi - Cuma: 09:00 - 18:00</span>
                 </p>
               </div>
             </div>

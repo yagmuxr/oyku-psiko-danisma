@@ -6,8 +6,8 @@ import './About.css';
 const About = () => {
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/assets/cv/Özgeçmiş.pdf';
-    link.download = 'Özgeçmiş.pdf';
+    link.href = '/assets/cv/ozgecmis.pdf';
+    link.download ='ozgecmis.pdf';
     link.click();
   };
 

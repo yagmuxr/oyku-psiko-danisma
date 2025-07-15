@@ -16,10 +16,28 @@ const AppointmentModal = ({ isOpen, onClose }) => {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    
+    // Telefon numarası için özel validasyon
+    if (name === 'phone') {
+      // Sadece rakam karakterlerine izin ver
+      let cleanedValue = value.replace(/[^0-9]/g, '');
+      
+      // Maksimum 11 hane
+      if (cleanedValue.length > 10) {
+        cleanedValue = cleanedValue.substring(0, 10);
+      }
+      
+      setFormData({
+        ...formData,
+        [name]: cleanedValue
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -180,7 +198,9 @@ const AppointmentModal = ({ isOpen, onClose }) => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+90 XXX XXX XX XX"
+                  placeholder="5XX XXX XX XX"
+                  maxLength="11"
+                  pattern="[0-9]{10,11}"
                 />
               </div>
               <div className="form-group">

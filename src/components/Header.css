@@ -57,14 +57,11 @@
   
   .logo h2 {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin: 0;
-    padding: 0;
-    letter-spacing: -0.3px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    line-height: 1.2;
-    white-space: nowrap; /* Tek satırda kalır */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-style: italic; /* İtalik ekledim */
   }
   
   /* ============================

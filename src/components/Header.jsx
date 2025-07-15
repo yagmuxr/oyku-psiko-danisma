@@ -35,10 +35,10 @@ const Header = () => {
           
           <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
             <ul>
-              <li><a href="/" onClick={() => scrollToSection('anasayfa')}>Ana Sayfa</a></li>
-              <li><a href="/hakkimda" onClick={() => scrollToSection('hakkimda')}>Hakkımda</a></li>
-              <li><a href="/hizmetler" onClick={() => scrollToSection('hizmetler')}>Hizmetler</a></li>
-              <li><a href="#iletisim" onClick={() => scrollToSection('iletisim')}>İletişim</a></li>
+              <li><Link to="/">Ana Sayfa</Link></li>
+              <li><Link to="/hakkimda">Hakkımda</Link></li>
+              <li><Link to="/hizmetler">Hizmetler</Link></li>
+              <li><Link to="/iletisim">İletişim</Link></li>
             </ul>
             <button className="cta-button" onClick={() => setIsModalOpen(true)}>
               Randevu Al

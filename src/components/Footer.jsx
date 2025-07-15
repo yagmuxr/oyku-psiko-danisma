@@ -73,7 +73,7 @@ const Footer = () => {
 
           <div className="footer-bottom">
             <div className="footer-bottom-content">
-              <p>© 2024 Öykü Psikolojik Danışma. Tüm hakları saklıdır.</p>
+              <p>© 2025 Öykü Çengel. Tüm hakları saklıdır.</p>
               <div className="footer-links">
                 <a href="#">Gizlilik Politikası</a>
                 <a href="#">Kullanım Koşulları</a>

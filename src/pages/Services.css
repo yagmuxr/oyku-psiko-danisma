@@ -225,30 +225,56 @@
   line-height: 1.6;
 }
 
-/* ==================== CTA SECTION ==================== */
+/* ==================== CTA SECTION (Quote Style) ==================== */
 .services-cta {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, #059669, #10b981);
+  position: relative;
+  padding: 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  overflow: hidden;
+}
+
+.services-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(44,82,130,0.7)),
+              url('/img/oyku.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.services-cta .container {
+  position: relative;
+  z-index: 2;
   text-align: center;
 }
 
 .services-cta h2 {
   color: white;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .services-cta p {
   color: #e2e8f0;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-style: italic;
-  margin-bottom: 2rem;
-  max-width: 600px;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  line-height: 1.8;
 }
 
-.cta-btn {
+.services-cta .cta-btn {
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.25) 0%,
@@ -263,9 +289,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  text-shadow: none;
 }
 
-.cta-btn:hover {
+.services-cta .cta-btn:hover {
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.35) 0%,

@@ -28,7 +28,7 @@ const Header = () => {
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
           <div className="logo">
-            <img src="./public/img/logoyeni.png" alt="" />
+            <img src="/img/logoyeni.png" alt="" />
             <h2>Psikolojik Danışman Öykü Çengel</h2>
           </div>
           

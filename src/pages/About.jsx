@@ -38,7 +38,7 @@ const About = () => {
               </button>
             </div>
             <div className="about-hero-image">
-              <img src="/public/img/oyku.jpeg" alt="Öykü Çengel" />
+              <img src="/img/oyku.jpeg" alt="Öykü Çengel" />
             </div>
           </div>
         </section>

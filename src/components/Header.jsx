@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AppointmentModal from './AppointmentModal';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,7 @@ const Header = () => {
             <ul>
               <li><a href="/" onClick={() => scrollToSection('anasayfa')}>Ana Sayfa</a></li>
               <li><a href="/hakkimda" onClick={() => scrollToSection('hakkimda')}>Hakkımda</a></li>
-              <li><a href="#hizmetler" onClick={() => scrollToSection('hizmetler')}>Hizmetler</a></li>
+              <li><a href="/hizmetler" onClick={() => scrollToSection('hizmetler')}>Hizmetler</a></li>
               <li><a href="#iletisim" onClick={() => scrollToSection('iletisim')}>İletişim</a></li>
             </ul>
             <button className="cta-button" onClick={() => setIsModalOpen(true)}>

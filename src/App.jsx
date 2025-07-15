@@ -148,7 +148,7 @@ function App() {
                 </button>
               </div>
               <div className="about-image">
-                <img src="./public/img/oyku.jpeg" alt="Öykü Çengel" className="about-photo" />
+                <img src="/img/oyku.jpeg" alt="Öykü Çengel" className="about-photo" />
               </div>
             </div>
           </div>

@@ -19,8 +19,6 @@ const Services = () => {
         'Kişisel gelişim ve kendini keşfetme',
         'Yaşam zorluklarıyla başa çıkma'
       ],
-      duration: '50 dakika',
-      price: 'Uygun Fiyat',
       type: 'online-yuzyuze'
     },
     {
@@ -35,10 +33,8 @@ const Services = () => {
         'Problem çözme becerileri',
         'Oyun, sanat, müzik, dans teknikleri',
         'Travmatik deneyim işleme'
-      ],
-      duration: '45 dakika',
-      price: 'Uygun Fiyat',
-      type: 'yuzyuze'
+        ],
+        type: 'yuzyuze'
     },
     {
       id: 3,
@@ -56,8 +52,6 @@ const Services = () => {
         'Cinsel problemler',
         'Güven problemleri'
       ],
-      duration: '60 dakika',
-      price: 'Uygun Fiyat',
       type: 'online-yuzyuze'
     },
     {
@@ -76,8 +70,6 @@ const Services = () => {
         'Motivasyon stratejileri',
         'Problem çözme becerileri kazandırma'
       ],
-      duration: 'Değişken',
-      price: 'Proje Bazlı',
       type: 'kurumsal'
     }
   ];
@@ -117,27 +109,6 @@ const Services = () => {
                       ))}
                     </ul>
                   </div>
-
-                  <div className="service-info">
-                    <div className="service-duration">
-                      <span className="info-icon">⏱️</span>
-                      <span>Süre: {service.duration}</span>
-                    </div>
-                    <div className="service-price">
-                      <span className="info-icon">💰</span>
-                      <span>{service.price}</span>
-                    </div>
-                    <div className="service-type">
-                      <span className="info-icon">📍</span>
-                      <span>
-                        {service.type === 'online-yuzyuze' ? 'Online & Yüz Yüze' : 
-                         service.type === 'online' ? 'Online' : 
-                         service.type === 'yuzyuze' ? 'Yüz Yüze' :
-                         service.type === 'kurumsal' ? 'Kurumsal' : 'Özel'}
-                      </span>
-                    </div>
-                  </div>
-
                   <button className="service-btn" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
                     Randevu Al
                   </button>

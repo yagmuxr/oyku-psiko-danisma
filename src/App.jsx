@@ -84,9 +84,9 @@ function App() {
           <div className="quote-background"></div>
           <div className="quote-content">
             <blockquote>
-              "Kendinizi anlamak, değişimin ilk adımıdır."
+              "Dünyayı değiştirmek isteyen, önce kendinden başlamalıdır."
             </blockquote>
-            <cite>- Öykü Çengel</cite>
+            <cite>- Mahatma Gandhi</cite>
           </div>
         </section>
 

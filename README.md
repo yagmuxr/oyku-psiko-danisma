@@ -1,12 +1,40 @@
-# React + Vite
+# Öykü Çengel - Psikolojik Danışmanlık Websitesi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, psikolog **Öykü Çengel** için hazırlanmış modern, responsive ve kullanıcı dostu bir psikoloji danışmanlığı websitesidir. Site, hem online hem de yüz yüze terapi hizmetlerini tanıtmak ve randevu alma sürecini kolaylaştırmak amacıyla geliştirilmiştir.
 
-Currently, two official plugins are available:
+## 🌟 Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎯 Ana Özellikler
+- **Responsive Tasarım**: Mobil, tablet ve masaüstü cihazlarda mükemmel görünüm
+- **Modern UI/UX**: Temiz, profesyonel ve güvenilir tasarım
+- **Kolay Navigasyon**: Kullanıcı dostu menü ve smooth scrolling
+- **Hızlı Yükleme**: Optimize edilmiş performans
 
-## Expanding the ESLint configuration
+### 💼 Hizmet Sayfaları
+- **Bireysel Psikoterapi**: Anksiyete, depresyon, travma desteği
+- **Çift Terapisi**: İlişki danışmanlığı ve çift terapisi
+- **Oyun Terapisi**: Çocuklar için özel terapi yöntemleri
+- **Kurumsal Danışmanlık**: İşletmeler için psikolojik destek
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📱 İletişim Özellikleri
+- **WhatsApp Entegrasyonu**: Doğrudan mesajlaşma
+- **Email Entegrasyonu**: EmailJS ile iletişim formu
+- **Sosyal Medya Bağlantıları**: Tüm platformlara kolay erişim
+
+## 🚀 Teknolojiler
+
+### Frontend
+- **React 19.1.0** - Modern JavaScript framework
+- **React Router DOM 7.6.3** - Single Page Application routing
+- **Vite 7.0.4** - Hızlı build tool ve dev server
+- **CSS3** - Modern styling ve animasyonlar
+
+### Kütüphaneler
+- **EmailJS** - Email entegrasyonu
+- **ESLint** - Kod kalitesi ve standartları
+
+### Deployment
+- **Vercel** - Hızlı ve güvenilir hosting
+
+## SEO Optimizasyonu
+

@@ -20,7 +20,6 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     
-    // Telefon numarası için özel validasyon
     if (name === 'phone') {
       let cleanedValue = value.replace(/[^0-9]/g, '');
       if (cleanedValue.length > 11) {

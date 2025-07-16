@@ -30,7 +30,7 @@ const Header = () => {
         <div className="header-container">
           <div className="logo">
             <img src="/img/logoyeni.png" alt="" />
-            <h2>Psikolojik Danışman Öykü Çengel</h2>
+            <h2>Psikolojik Danışman <br /> Öykü Çengel</h2>
           </div>
           
           <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
@@ -38,6 +38,7 @@ const Header = () => {
               <li><Link to="/">Ana Sayfa</Link></li>
               <li><Link to="/hakkimda">Hakkımda</Link></li>
               <li><Link to="/hizmetler">Hizmetler</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/iletisim">İletişim</Link></li>
             </ul>
             <button className="cta-button" onClick={() => setIsModalOpen(true)}>

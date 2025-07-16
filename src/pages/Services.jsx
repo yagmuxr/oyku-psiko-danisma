@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 import './Services.css';
 
 const Services = () => {
@@ -8,14 +9,15 @@ const Services = () => {
     {
       id: 1,
       icon: '🧠',
-      title: 'Bireysel Terapi',
-      description: 'Kendinizi keşfetmenize ve duygusal ihtiyaçlarınızı anlamanıza destek olur.',
+      title: 'Bireysel Psikoterapi',
+      description: 'Bireylere hayatlarında sıkıntı, çatışma meydana getiren problemlerin üzerinden gelebilecekleri güvenli bir alan sunar.',
       details: [
         'Anksiyete ve stres yönetimi',
         'Depresyon desteği',
-        'Kişisel gelişim',
         'Travma iyileştirme',
-        'Öfke kontrolü'
+        'Öfke kontrolü',
+        'Kişisel gelişim ve kendini keşfetme',
+        'Yaşam zorluklarıyla başa çıkma'
       ],
       duration: '50 dakika',
       price: 'Uygun Fiyat',
@@ -23,83 +25,60 @@ const Services = () => {
     },
     {
       id: 2,
-      icon: '👥',
-      title: 'Çift ve Aile Danışmanlığı',
-      description: 'İlişkilerde sağlıklı iletişimi ve anlayışı güçlendirmek için yanınızdayım.',
+      icon: '🎮',
+      title: 'Oyun Terapisi',
+      description: 'Çeşitli oyun tekniklerinin kullanıldığı bir psikoterapi yöntemidir. Çocukların duygularını ifade etmesi ve iletişim becerilerini geliştirmesi için tasarlanmıştır.',
       details: [
-        'İletişim sorunları',
-        'Çatışma çözme becerileri',
-        'Güven inşası',
-        'Aile içi dinamikler',
-        'Boşanma süreci desteği'
+        'Duygusal ifade becerileri geliştirme',
+        'İletişim becerilerini artırma',
+        'Sağlıklı başa çıkma yöntemleri',
+        'Problem çözme becerileri',
+        'Oyun, sanat, müzik, dans teknikleri',
+        'Travmatik deneyim işleme'
+      ],
+      duration: '45 dakika',
+      price: 'Uygun Fiyat',
+      type: 'yuzyuze'
+    },
+    {
+      id: 3,
+      icon: '💑',
+      title: 'Çift Terapisi',
+      description: 'Çiftlerin ilişkilerindeki problemleri çözmek, çatışmaları ortadan kaldırmak, birlikteliklerini güçlendirmek amacıyla kullanılan bir psikoterapi türüdür.',
+      details: [
+        'Evlilik süreci desteği',
+        'Aldatma/aldatılma sorunları',
+        'Boşanma ve ayrılık süreci',
+        'Kıskançlık problemleri',
+        'Geçmişten gelen çözümlenemeyen olaylar',
+        'Partner kaybı ve yas süreci',
+        'Tartışmalar ve iletişim güçlükleri',
+        'Cinsel problemler',
+        'Güven problemleri'
       ],
       duration: '60 dakika',
       price: 'Uygun Fiyat',
       type: 'online-yuzyuze'
     },
     {
-      id: 3,
-      icon: '🌈',
-      title: 'Kapsayıcı Psikolojik Destek',
-      description: 'Her bireyin saygı ve anlayışla karşılandığı, eşitlik ilkelerine bağlı bir yaklaşım.',
-      details: [
-        'LGBTQ+ kimlik desteği',
-        'Cinsiyet kimliği keşfi',
-        'Aile kabul süreci',
-        'Sosyal destek ağı oluşturma',
-        'Toplumsal baskı ile başa çıkma'
-      ],
-      duration: '50 dakika',
-      price: 'Uygun Fiyat',
-      type: 'online-yuzyuze'
-    },
-    {
       id: 4,
-      icon: '💻',
-      title: 'Online Terapi',
-      description: 'Coğrafi sınırları aşarak güvenli online ortamda psikolojik destek.',
+      icon: '🏢',
+      title: 'Kurumsal Danışmanlık',
+      description: 'İşletmelere yönelik kapsamlı psikolojik danışmanlık hizmetleri sunarak çalışan refahını ve iş performansını artırma.',
       details: [
-        'Esnek randevu saatleri',
-        'Güvenli video görüşme',
-        'Gizlilik garantisi',
-        'Evden terapi imkanı',
-        'Teknoloji destekli süreç'
+        'Stres yönetimi',
+        'Psikolojik destek',
+        'Kariyer koçluğu',
+        'İş hayatında duygu düzenleme stratejileri',
+        'Kriz yönetimi',
+        'Takım ruhunu ve işbirliğini güçlendirme',
+        'İşe alım süreçleri',
+        'Motivasyon stratejileri',
+        'Problem çözme becerileri kazandırma'
       ],
-      duration: '45-50 dakika',
-      price: 'Uygun Fiyat',
-      type: 'online'
-    },
-    {
-      id: 5,
-      icon: '👨‍👩‍👧‍👦',
-      title: 'Grup Rehberliği',
-      description: 'Benzer deneyimler yaşayan kişilerle grup dinamiği ile iyileşme.',
-      details: [
-        'Sosyal kaygı grupları',
-        'Öfke yönetimi grupları',
-        'Kişisel gelişim atölyeleri',
-        'Destek grupları',
-        'Farkındalık grupları'
-      ],
-      duration: '75 dakika',
-      price: 'Uygun Fiyat',
-      type: 'grup'
-    },
-    {
-      id: 6,
-      icon: '🌱',
-      title: 'Kişisel Gelişim',
-      description: 'Potansiyelinizi keşfedin ve hedeflerinize ulaşmak için destek alın.',
-      details: [
-        'Hedef belirleme',
-        'Motivasyon artırma',
-        'Özgüven geliştirme',
-        'Karar verme becerileri',
-        'Yaşam koçluğu'
-      ],
-      duration: '50 dakika',
-      price: 'Uygun Fiyat',
-      type: 'online-yuzyuze'
+      duration: 'Değişken',
+      price: 'Proje Bazlı',
+      type: 'kurumsal'
     }
   ];
 
@@ -153,7 +132,8 @@ const Services = () => {
                       <span>
                         {service.type === 'online-yuzyuze' ? 'Online & Yüz Yüze' : 
                          service.type === 'online' ? 'Online' : 
-                         service.type === 'grup' ? 'Grup Seansı' : 'Özel'}
+                         service.type === 'yuzyuze' ? 'Yüz Yüze' :
+                         service.type === 'kurumsal' ? 'Kurumsal' : 'Özel'}
                       </span>
                     </div>
                   </div>
@@ -218,6 +198,7 @@ const Services = () => {
       </main>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

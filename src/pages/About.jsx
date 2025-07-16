@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton'; // Ekle
 import './About.css';
 
 const About = () => {
@@ -186,6 +187,7 @@ const About = () => {
       </main>
 
       <Footer />
+      <WhatsAppButton /> {/* Ekle */}
     </div>
   );
 };

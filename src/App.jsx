@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AppointmentModal from './components/AppointmentModal';
+import WhatsAppButton from './components/WhatsAppButton';
 import './App.css';
 
 function App() {
@@ -161,6 +162,8 @@ function App() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+
+      <WhatsAppButton />
     </div>
   );
 }

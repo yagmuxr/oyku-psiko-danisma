@@ -49,19 +49,22 @@
   .about-hero-text h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
   
   .about-hero-title {
     font-size: 1.3rem;
-    color: #10b981;
+    color: #066344;
     margin-bottom: 1rem;
     font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
   
   .about-hero-subtitle {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #e2e8f0;
+    color: #066344;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
   }
   
   .about-hero-image {
@@ -73,7 +76,7 @@
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #10b981;
+    border: 4px solid #066344;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   }
   
@@ -142,7 +145,7 @@
   
   .about-intro h2 {
     font-size: 2.5rem;
-    color: #1a202c;
+    color: #059669;
     margin-bottom: 1.5rem;
   }
   
@@ -379,7 +382,7 @@
     font-size: 1.1rem;
     cursor: pointer;
     border: 2px solid rgba(255, 255, 255, 0.4);
-    background: rgba(43, 255, 0, 0.15); /* Saydamlık */
+    background: rgba(16, 185, 129, 0.15);
     color: #ffffff;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -388,7 +391,7 @@
   
   .about-hero-text .download-btn:hover {
     background: rgba(255, 255, 255, 0.3);
-    color: #007e24; /* Butona hover olunca renk değişimi */
+    color: #059669;
     border-color: rgba(255, 255, 255, 0.6);
   }
   

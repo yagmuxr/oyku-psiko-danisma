@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton'; // Ekle
 import './Contact.css';
 
 const Contact = () => {
@@ -325,6 +326,7 @@ const Contact = () => {
       </main>
 
       <Footer />
+      <WhatsAppButton /> {/* Ekle */}
     </div>
   );
 };

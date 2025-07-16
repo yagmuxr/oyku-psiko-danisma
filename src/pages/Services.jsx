@@ -5,6 +5,14 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import './Services.css';
 
 const Services = () => {
+  // SEO optimizasyonu
+  useDocumentHead({
+    title: "Hizmetlerim - Öykü Çengel Psikolog | Bireysel Terapi, Çift Terapisi",
+    description: "Bireysel psikoterapi, çift terapisi, oyun terapisi ve kurumsal danışmanlık hizmetleri. Online ve yüz yüze seans seçenekleri.",
+    keywords: "bireysel terapi, çift terapisi, oyun terapisi, kurumsal danışmanlık, online terapi, yüz yüze terapi",
+    url: "https://oykucengel.com/hizmetler"
+  });
+
   const services = [
     {
       id: 1,
@@ -79,7 +87,7 @@ const Services = () => {
       <Header />
       
       <main className="services-main">
-        {/* Hero Section */}
+        {/* Semantic HTML ile Hero Section */}
         <section className="services-hero">
           <div className="services-hero-background"></div>
           <div className="services-hero-content">
@@ -91,28 +99,40 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Structured Data ile Services Grid */}
         <section className="services-grid-section">
           <div className="container">
             <div className="services-grid">
               {services.map(service => (
-                <div key={service.id} className="service-card">
+                <article 
+                  key={service.id} 
+                  className="service-card"
+                  itemScope 
+                  itemType="https://schema.org/Service"
+                >
                   <div className="service-icon">{service.icon}</div>
-                  <h3>{service.title}</h3>
-                  <p className="service-description">{service.description}</p>
+                  <h3 itemProp="name">{service.title}</h3>
+                  <p className="service-description" itemProp="description">
+                    {service.description}
+                  </p>
                   
                   <div className="service-details">
                     <h4>Hizmet Kapsamı:</h4>
-                    <ul>
+                    <ul itemProp="offers" itemScope itemType="https://schema.org/Offer">
                       {service.details.map((detail, index) => (
-                        <li key={index}>{detail}</li>
+                        <li key={index} itemProp="description">{detail}</li>
                       ))}
                     </ul>
                   </div>
-                  <button className="service-btn" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+                  
+                  <button 
+                    className="service-btn" 
+                    onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+                    aria-label={`${service.title} için randevu al`}
+                  >
                     Randevu Al
                   </button>
-                </div>
+                </article>
               ))}
             </div>
           </div>
